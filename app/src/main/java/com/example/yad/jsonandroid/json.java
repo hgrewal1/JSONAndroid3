@@ -45,13 +45,13 @@ public class json extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.list);
 
-        new GetContacts().execute();
+        new MyTask().execute();
     }
 
     /**
      * Async task class to get json by making HTTP call
      */
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
+    private class MyTask extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
