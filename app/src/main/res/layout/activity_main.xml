@@ -44,6 +44,13 @@
             android:layout_height="wrap_content"
             android:onClick="next"
             android:text="Button" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="main3"
+            android:text="Main3" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

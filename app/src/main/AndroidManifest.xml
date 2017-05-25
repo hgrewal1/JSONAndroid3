@@ -21,9 +21,10 @@
         <activity
             android:name=".json"
             android:exported="true" />
-
-        <activity android:name=".Main2Activity" android:exported="true"></activity>
-
+        <activity
+            android:name=".Main2Activity"
+            android:exported="true" />
+        <activity android:name=".Main3Activity" android:exported="true"></activity>
     </application>
 
 </manifest>

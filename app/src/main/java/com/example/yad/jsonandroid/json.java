@@ -32,7 +32,7 @@ public class json extends AppCompatActivity {
     private ListView lv;
 
     // URL to get contacts JSON
-    private static String url = "http://144.217.163.57:8080/cegepgim/mobile/tutorials/viewalltutorial";
+
 
     ArrayList<HashMap<String, String>> arylist;
 
@@ -48,9 +48,7 @@ public class json extends AppCompatActivity {
         new MyTask().execute();
     }
 
-    /**
-     * Async task class to get json by making HTTP call
-     */
+
     private class MyTask extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -108,7 +106,7 @@ String status=obj.getString("Status");
                         // adding each child node to HashMap key => value
                         contact.put("TutorialName", o2);
                         contact.put("AddedDate", o4);
-                        contact.put("TutorialId", o4);
+                        contact.put("TutorialId", o5);
 
 
                         // adding Array values to Array list

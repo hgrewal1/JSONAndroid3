@@ -29,7 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(MyIntent);
     }
+    public void main3(View view){
 
+        Intent MyIntent=new Intent(this,Main3Activity.class);
+
+        startActivity(MyIntent);
+    }
 
 
 }
