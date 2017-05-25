@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="2dip"
-        android:textColor="#ece6e6"
+        android:textColor="#72a4d6"
         android:paddingTop="6dip"
 
         android:textSize="16sp"
@@ -20,7 +20,7 @@
         android:id="@+id/email"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="#f9f7f7"
+        android:textColor="#9e6c6c"
         android:paddingBottom="2dip"
         />
 
@@ -28,6 +28,6 @@
         android:id="@+id/mobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#f3efef"
+        android:textColor="#96dbae"
         android:textStyle="bold" />
 </LinearLayout>
