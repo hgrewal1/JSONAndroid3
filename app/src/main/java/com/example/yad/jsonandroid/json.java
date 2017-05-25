@@ -32,16 +32,16 @@ public class json extends AppCompatActivity {
     private ListView lv;
 
     // URL to get contacts JSON
-    private static String url = "http://144.217.163.57:8080/cegepgim/mobile/test/findStudent&z12345";
+    private static String url = "http://144.217.163.57:8080/cegepgim/mobile/tutorials/viewalltutorial";
 
-    ArrayList<HashMap<String, String>> contactList;
+    ArrayList<HashMap<String, String>> arylist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json);
 
-        contactList = new ArrayList<>();
+        arylist = new ArrayList<>();
 
         lv = (ListView) findViewById(R.id.list);
 
@@ -70,7 +70,7 @@ public class json extends AppCompatActivity {
 
 
             try {
-                url = new URL("http://144.217.163.57:8080/cegepgim/mobile/test/findStudent&z12345");
+                url = new URL("http://144.217.163.57:8080/cegepgim/mobile/tutorials/viewalltutorial");
 
                 HttpURLConnection client = null;
                 client = (HttpURLConnection) url.openConnection();
@@ -89,27 +89,30 @@ public class json extends AppCompatActivity {
                 }
                 in.close();
 
-                if (response != null) {
+
 
                     JSONObject obj = new JSONObject(response.toString());
-
+String status=obj.getString("Status");
+                if (status.equals("ok")) {
                     JSONArray ary = new JSONArray();
-                    ary = obj.getJSONArray("results");
+                    ary = obj.getJSONArray("Tutorials");
                     for (Integer i = 0; i < ary.length(); i++) {
                         JSONObject obj1 = ary.getJSONObject(i);
-                        String o2 = obj1.getString("course_title");
-                        String o4 = obj1.getString("course_id");
+                        String o2 = obj1.getString("TutorialName");
+                        String o4 = obj1.getString("AddedDate");
+                        String o5 = obj1.getString("TutorialId");
 
 
                         HashMap<String, String> contact = new HashMap<>();
 
                         // adding each child node to HashMap key => value
-                        contact.put("course_title", o2);
-                        contact.put("course_id", o4);
+                        contact.put("TutorialName", o2);
+                        contact.put("AddedDate", o4);
+                        contact.put("TutorialId", o4);
 
 
-                        // adding contact to contact list
-                        contactList.add(contact);
+                        // adding Array values to Array list
+                        arylist.add(contact);
                     }
                 }
                 else {
@@ -158,9 +161,9 @@ public class json extends AppCompatActivity {
              * Updating parsed JSON data into ListView
              * */
             ListAdapter adapter = new SimpleAdapter(
-                    json.this, contactList,
-                    R.layout.list_item, new String[]{"course_title", "course_id"}, new int[]{R.id.name,
-                    R.id.email});
+                    json.this, arylist,
+                    R.layout.list_item, new String[]{"TutorialName", "AddedDate","TutorialId"}, new int[]{R.id.name,
+                    R.id.email,R.id.mobile});
 
             lv.setAdapter(adapter);
         }
