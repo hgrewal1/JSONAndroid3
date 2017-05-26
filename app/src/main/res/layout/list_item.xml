@@ -13,8 +13,8 @@
         android:textColor="#72a4d6"
         android:paddingTop="6dip"
 
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textSize="22dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/email"
@@ -22,6 +22,8 @@
         android:layout_height="wrap_content"
         android:textColor="#9e6c6c"
         android:paddingBottom="2dip"
+        android:textSize="16dp"
+        android:textStyle="bold"
 
         />
 
@@ -29,6 +31,8 @@
         android:id="@+id/mobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textStyle="bold"
         android:textColor="#96dbae"
-        android:textStyle="bold" />
+         />
 </LinearLayout>

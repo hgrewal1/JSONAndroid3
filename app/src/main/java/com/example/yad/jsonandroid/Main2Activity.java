@@ -25,14 +25,12 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        out1 = (TextView) findViewById(R.id.textView);
+        out1 = (TextView) findViewById(R.id.textView1);
         out2 = (TextView) findViewById(R.id.textView2);
         out3 = (TextView) findViewById(R.id.textView3);
         out4 = (TextView) findViewById(R.id.textView4);
         out5 = (TextView) findViewById(R.id.textView5);
-        out6 = (TextView) findViewById(R.id.textView6);
-        out7 = (TextView) findViewById(R.id.textView7);
-        out8 = (TextView) findViewById(R.id.textView8);
+
         new MyTask().execute();
     }
 
@@ -67,12 +65,12 @@ public class Main2Activity extends AppCompatActivity {
                 //print rsult
                 System.out.println(response.toString());
                 JSONObject obj = new JSONObject(response.toString());
-                o5 = obj.getString("Status");
-                if(o5.equals("ok")){
-                    o1 = obj.getString("UserId");
-                    o2 = obj.getString("FirstName");
-                    o3 = obj.getString("LastName");
-                    o4 = obj.getString("Email");}
+                o1 = obj.getString("Status");
+                if(o1.equals("ok")){
+                    o2 = obj.getString("UserId");
+                    o3 = obj.getString("FirstName");
+                    o4 = obj.getString("LastName");
+                    o5 = obj.getString("Email");}
 
 
 
@@ -80,9 +78,9 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
-                    o1 = obj.getString("UserId");
-                    o2 = obj.getString("Message");
-                    o4 = obj.getString("TimeStamp");
+                    o2 = obj.getString("UserId");
+                    o3 = obj.getString("Message");
+                    o4= obj.getString("TimeStamp");
 
 
 
@@ -106,7 +104,7 @@ public class Main2Activity extends AppCompatActivity {
             out3.setText(o3);
             out4.setText(o4);
             out5.setText(o5);
-            out6.setText(o6);
+
 
             super.onPostExecute(result);
 
