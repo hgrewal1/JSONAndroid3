@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yad.jsonandroid.Main4Activity">
+    tools:context="com.example.yad.jsonandroid.Searchtutorials">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -33,14 +33,32 @@
             android:textColor="#ab6b6b"
             android:textSize="24dp" />
 
-        <TextView
-            android:id="@+id/textView2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="#364d71"
+            android:layout_height="39dp"
+            android:orientation="horizontal">
 
-            android:textSize="24dp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tutorial Name: "
+                android:textColor="#713736"
+
+
+                android:textSize="24dp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+
+                android:textColor="#364d71"
+                android:textSize="24dp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView3"

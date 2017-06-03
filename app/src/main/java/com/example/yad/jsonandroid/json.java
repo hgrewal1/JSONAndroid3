@@ -48,6 +48,7 @@ public class json extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json);
 
+
         arylist = new ArrayList<>();
 
         lv = (ListView) findViewById(R.id.list);
@@ -65,7 +66,7 @@ public class json extends AppCompatActivity {
                                     long arg3) {
                 // on selecting a single album
                 // TrackListActivity will be launched to show tracks inside the album
-                Intent i = new Intent(getApplicationContext(), Main4Activity.class);
+                Intent i = new Intent(getApplicationContext(), Searchtutorials.class);
 
                 // send album id to tracklist activity to get list of songs under that album
                 String tut_name = ((TextView) view.findViewById(R.id.name)).getText().toString();
@@ -98,7 +99,7 @@ public class json extends AppCompatActivity {
 
 
             try {
-                url = new URL("http://144.217.163.57:8080/cegepgim/mobile/tutorials/viewalltutorial");
+                url = new URL("http://10.0.2.2:8080/tutorials/cegepgim/tutorials/viewalltutorial");
 
                 HttpURLConnection client = null;
                 client = (HttpURLConnection) url.openConnection();

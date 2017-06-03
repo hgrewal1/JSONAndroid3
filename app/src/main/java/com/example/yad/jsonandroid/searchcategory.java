@@ -18,13 +18,14 @@ import java.net.URL;
 
 
 
-public class Main4Activity extends AppCompatActivity {
+public class searchcategory extends AppCompatActivity {
     TextView out1, out2, out3, out4,out5;
+    String r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.search_tutorials);
         out1 = (TextView) findViewById(R.id.textView1);
         out2 = (TextView) findViewById(R.id.textView2);
         out3 = (TextView) findViewById(R.id.textView3);
@@ -41,11 +42,11 @@ public class Main4Activity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             URL url = null;
             Intent mynewintent = getIntent();
-            String r = mynewintent.getStringExtra("tname");
+            r = mynewintent.getStringExtra("search");
 
 
             try {
-                url = new URL("http://144.217.163.57:8080/cegepgim/mobile/tutorials/viewtutorial&"+r);
+                url = new URL("http://144.217.163.57:8080/cegepgim/mobile/tutorials/viewcategory&"+r);
 
                 HttpURLConnection client = null;
                 client = (HttpURLConnection) url.openConnection();
@@ -67,10 +68,9 @@ public class Main4Activity extends AppCompatActivity {
                 JSONObject obj = new JSONObject(response.toString());
                 o1 = obj.getString("Status");
                 if(o1.equals("ok")){
-                    o2 = obj.getString("TutorialName");
-                    o3 = obj.getString("AddedDate");
-                    o4 = obj.getString("TutorialId");
-                    o5 = obj.getString("UserId");}
+                    o2 = obj.getString("CategoryName");
+                    o3 = obj.getString("CategoryId");
+                   }
 
 
 
@@ -78,7 +78,7 @@ public class Main4Activity extends AppCompatActivity {
 
 
 
-
+                    o2=r;
                     o3 = obj.getString("Message");
                     o4 = obj.getString("TimeStamp");
 
@@ -102,8 +102,8 @@ public class Main4Activity extends AppCompatActivity {
             out1.setText(o1);
             out2.setText(o2);
             out3.setText(o3);
-            out4.setText(o4);
-            out5.setText(o5);
+
+
 
 
             super.onPostExecute(result);
