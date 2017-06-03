@@ -1,13 +1,17 @@
 package com.example.yad.jsonandroid;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -24,12 +28,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+
+
 public class json extends AppCompatActivity {
 
     private String TAG = json.class.getSimpleName();
 
     private ProgressDialog pDialog;
     private ListView lv;
+
 
     // URL to get contacts JSON
 
@@ -46,7 +53,30 @@ public class json extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.list);
 
         new MyTask().execute();
+
+
+        /**
+         * Listview item click listener
+         * TrackListActivity will be lauched by passing album id
+         * */
+        lv.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, android.view.View view, int arg2,
+                                    long arg3) {
+                // on selecting a single album
+                // TrackListActivity will be launched to show tracks inside the album
+                Intent i = new Intent(getApplicationContext(), Main4Activity.class);
+
+                // send album id to tracklist activity to get list of songs under that album
+                String tut_name = ((TextView) view.findViewById(R.id.name)).getText().toString();
+                i.putExtra("tname", tut_name);
+
+                startActivity(i);
+            }
+        });
     }
+
+
 
 
     private class MyTask extends AsyncTask<Void, Void, Void> {
@@ -165,6 +195,7 @@ String status=obj.getString("Status");
 
             lv.setAdapter(adapter);
         }
+
 
     }
 }
