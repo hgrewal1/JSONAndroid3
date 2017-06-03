@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public void zzz(View view){
+    public void nextpage(View view){
         EditText in1=(EditText) findViewById(R.id.editText) ;
         EditText in2=(EditText) findViewById(R.id.editText2) ;
         Intent MyIntent=new Intent(this,Main2Activity.class);
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(MyIntent);
     }
+
 
 
 
