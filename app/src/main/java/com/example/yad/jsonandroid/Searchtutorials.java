@@ -18,13 +18,14 @@ import java.net.URL;
 
 
 
-public class Main2Activity extends AppCompatActivity {
-    TextView out1, out2, out3, out4,out5,out6,out7,out8;
+public class Searchtutorials extends AppCompatActivity {
+    TextView out1, out2, out3, out4,out5;
+    String r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.search_tutorials);
         out1 = (TextView) findViewById(R.id.textView1);
         out2 = (TextView) findViewById(R.id.textView2);
         out3 = (TextView) findViewById(R.id.textView3);
@@ -41,11 +42,11 @@ public class Main2Activity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             URL url = null;
             Intent mynewintent = getIntent();
-            String r = mynewintent.getStringExtra("LON");
-            String s = mynewintent.getStringExtra("LAT");
+            r = mynewintent.getStringExtra("search");
+
 
             try {
-                url = new URL("http://144.217.163.57:8080/cegepgim/mobile/tutorials/login&"+r+"&"+s);
+                url = new URL("http://144.217.163.57:8080/cegepgim/mobile/tutorials/viewtutorial&"+r);
 
                 HttpURLConnection client = null;
                 client = (HttpURLConnection) url.openConnection();
@@ -67,10 +68,10 @@ public class Main2Activity extends AppCompatActivity {
                 JSONObject obj = new JSONObject(response.toString());
                 o1 = obj.getString("Status");
                 if(o1.equals("ok")){
-                    o2 = obj.getString("UserId");
-                    o3 = obj.getString("FirstName");
-                    o4 = obj.getString("LastName");
-                    o5 = obj.getString("Email");}
+                    o2 = obj.getString("TutorialName");
+                    o3 = obj.getString("AddedDate");
+                    o4 = obj.getString("TutorialId");
+                    o5 = obj.getString("UserId");}
 
 
 
@@ -78,9 +79,9 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
-                    o2 = obj.getString("UserId");
+                    o2=r;
                     o3 = obj.getString("Message");
-                    o4= obj.getString("TimeStamp");
+                    o4 = obj.getString("TimeStamp");
 
 
 
