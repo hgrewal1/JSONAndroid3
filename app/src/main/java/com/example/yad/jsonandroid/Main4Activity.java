@@ -1,5 +1,6 @@
 package com.example.yad.jsonandroid;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,8 +41,10 @@ public class Main4Activity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             URL url = null;
-            Intent mynewintent = getIntent();
-            String r = mynewintent.getStringExtra("tname");
+            SharedPreferences sp1=getSharedPreferences("Login",0);
+
+            String r=sp1.getString("Unm", null);
+
 
 
             try {
@@ -76,7 +79,7 @@ public class Main4Activity extends AppCompatActivity {
 
                 else{
 
-
+                    o2 = obj.getString("TutorialName");
 
 
                     o3 = obj.getString("Message");

@@ -27,15 +27,19 @@
         <activity
             android:name=".Main3Activity"
             android:exported="true" />
-        <activity android:name=".Main4Activity" android:exported="true">
-
-        </activity>
-        <activity android:name=".search" android:exported="true"></activity>
-        <activity android:name=".Searchtutorials" android:exported="true">
-
-        </activity>
-        <activity android:name=".searchcategory" android:exported="true"></activity>
-
+        <activity
+            android:name=".Main4Activity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".search"
+            android:exported="true" />
+        <activity
+            android:name=".Searchtutorials"
+            android:exported="true"></activity>
+        <activity
+            android:name=".searchcategory"
+            android:exported="true" />
+        <activity android:name=".checkbox" android:exported="true"></activity>
     </application>
 
 </manifest>

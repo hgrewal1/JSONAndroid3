@@ -1,8 +1,10 @@
 package com.example.yad.jsonandroid;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.content.Intent;
 import org.json.JSONException;
@@ -40,9 +42,10 @@ public class Main2Activity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             URL url = null;
-            Intent mynewintent = getIntent();
-            String r = mynewintent.getStringExtra("LON");
-            String s = mynewintent.getStringExtra("LAT");
+            SharedPreferences sp1=getSharedPreferences("Login",0);
+
+            String r=sp1.getString("Unm", null);
+            String s = sp1.getString("Psw", null);
 
             try {
                 url = new URL("http://144.217.163.57:8080/cegepgim/mobile/tutorials/login&"+r+"&"+s);
@@ -115,6 +118,9 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
-
+public void next(View view){
+Intent intent=new Intent(this,Main4Activity.class);
+    startActivity(intent);
+}
 }
 

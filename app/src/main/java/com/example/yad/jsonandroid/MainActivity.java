@@ -1,6 +1,7 @@
 package com.example.yad.jsonandroid;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,12 @@ public class MainActivity extends AppCompatActivity {
         Intent MyIntent=new Intent(this,Main2Activity.class);
         MyIntent.putExtra("LON",in2.getText().toString());
         MyIntent.putExtra("LAT",in1.getText().toString());
-
+        
+        SharedPreferences sp=getSharedPreferences("Login", 0);
+        SharedPreferences.Editor Ed=sp.edit();
+        Ed.putString("Unm",in2.getText().toString() );
+        Ed.putString("Psw",in1.getText().toString());
+        Ed.commit();
         startActivity(MyIntent);
     }
     public void next(View view){

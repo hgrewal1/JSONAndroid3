@@ -66,6 +66,13 @@
             android:text="TextView"
             android:textColor="#aba76b"
             android:textSize="24dp" />
+
+        <Button
+            android:onClick="next"
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
