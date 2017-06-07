@@ -2,8 +2,12 @@ package com.example.yad.jsonandroid;
 
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.content.Intent;
 import org.json.JSONException;
@@ -33,7 +37,34 @@ public class Main4Activity extends AppCompatActivity {
         out5 = (TextView) findViewById(R.id.textView5);
 
         new MyTask().execute();
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem=menu.getItem(2);
+        menuItem.setChecked(true);
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.action_account:
+                                Intent intent=new Intent(getApplicationContext(),Main4Activity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.action_bag:
+                                Intent intent1=new Intent(getApplicationContext(),json.class);
+                                startActivity(intent1);
+                                break;
+                            case R.id.action_home:
+                                Intent intent3=new Intent(getApplicationContext(),MainActivity.class);
+                                startActivity(intent3);
+                                break;
+                        }
+
+                        return false;
+                    }
+                });
     }
+
 
     private class MyTask extends AsyncTask<Void, Void, Void> {
         String o1, o2, o3, o4,o5,o6,o7,o8;

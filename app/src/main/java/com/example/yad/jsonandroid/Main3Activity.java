@@ -2,9 +2,12 @@ package com.example.yad.jsonandroid;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -45,7 +48,34 @@ public class Main3Activity extends AppCompatActivity {
         b=(Button) findViewById(R.id.button3);
         l = (ListView) findViewById(R.id.textView1);
         new MyTask().execute();
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.action_account:
+                                Intent intent=new Intent(getApplicationContext(),Main4Activity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.action_bag:
+                                Intent intent1=new Intent(getApplicationContext(),json.class);
+                                startActivity(intent1);
+                                break;
+                            case R.id.action_home:
+                                Intent intent3=new Intent(getApplicationContext(),MainActivity.class);
+                                startActivity(intent3);
+                                break;
+                        }
+
+                        return true;
+                    }
+                });
+
     }
+
     public void home(View view){
 
         Intent MyIntent=new Intent(this,MainActivity.class);

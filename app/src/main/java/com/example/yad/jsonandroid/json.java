@@ -4,9 +4,13 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -53,6 +57,33 @@ public class json extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.list);
 
         new MyTask().execute();
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem=menu.getItem(1);
+        menuItem.setChecked(true);
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.action_account:
+                                Intent intent=new Intent(getApplicationContext(),Main4Activity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.action_bag:
+                                Intent intent1=new Intent(getApplicationContext(),json.class);
+                                startActivity(intent1);
+                                break;
+                            case R.id.action_home:
+                                Intent intent3=new Intent(getApplicationContext(),MainActivity.class);
+                                startActivity(intent3);
+                                break;
+                        }
+
+                        return true;
+                    }
+                });
 
 
         /**
