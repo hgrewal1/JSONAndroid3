@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name=".json"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".Main2Activity"
             android:exported="true" />
@@ -29,7 +30,10 @@
             android:exported="true" />
         <activity
             android:name=".Main4Activity"
-            android:exported="true"></activity>
+            android:exported="true"
+            android:parentActivityName=".json">
+
+        </activity>
         <activity
             android:name=".search"
             android:exported="true" />

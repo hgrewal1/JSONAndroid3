@@ -4,9 +4,11 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.content.Intent;
@@ -63,6 +65,33 @@ public class Main4Activity extends AppCompatActivity {
                         return false;
                     }
                 });
+
+        ActionBar actionBar = getSupportActionBar();
+
+        // Enabling Up / Back navigation
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Take appropriate action for each action item click
+        switch (item.getItemId()) {
+            case R.id.account:
+                Intent intent=new Intent(getApplicationContext(),Main2Activity.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
